@@ -1,3 +1,4 @@
+// 必須知道model 才有辦法執行SQL指令
 import models from '../models/index';
 
 const {users} = models;
