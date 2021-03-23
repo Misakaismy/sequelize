@@ -1,14 +1,27 @@
 // 必須知道model 才有辦法執行SQL指令
-import models from '../models/index';
+import model from '../models/index';
+// import sequelize from 'sequelize';
+import _ from 'lodash';
 
-const {users} = models;
+const {users} = model;
 
 class UserController{
     getuser = async (req, res)=>{
-        const {email} = req.query;
-        const user = await users.findOne({
-            email
-        })
+        const {body} = req;
+        const {email} =body;
+
+        // const user = await model.sequelize.query(`SELECT * FROM user WHERE ${email}`);
+
+        const user = await users.findAll({
+            where: {
+                email:email,
+            }
+        });
+
+        // const reponse = _.map(user,(o)=>({
+        //     ...o.dataValues,
+        //     vip:true,
+        // }));
         res.status(200).json({user});
     }
 
