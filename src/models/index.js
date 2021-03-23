@@ -4,15 +4,12 @@ import { readdirSync } from 'fs';
 import { basename as _basename, join } from 'path';
 import Sequelize, { DataTypes } from 'sequelize';
 import path from 'path';
+// 檔案名稱
 const basename = _basename(__filename);
+// 設定ENV_KEY 如無找預設
 const env = process.env.NODE_ENV || 'development';
+// 抓config的哪一個KEY
 const config = require(__dirname + '/../config/config.json')[env];
-
-// let sequelize = new Sequelize('testdatabase', 'root', 'liang1001708', {
-//   host: "127.0.0.1",
-//   dialect: 'mysql',
-// });
-
 
 const db = {};
 
@@ -20,7 +17,7 @@ let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
+  sequelize = new Sequelize(config.database, config.username, config.password, config);// DB設定 config是其他設定
 }
 // 抓資料表
 readdirSync(__dirname)

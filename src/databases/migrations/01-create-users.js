@@ -1,3 +1,4 @@
+/* 這張是DB看的語法 要建什麼項目column */
 export async function up(queryInterface, Sequelize){
     await queryInterface.createTable('users',{
         id:{
@@ -14,13 +15,13 @@ export async function up(queryInterface, Sequelize){
         email_verified:{
             type:Sequelize.DATE,
         },
-        createAT:{
+        createdAT:{
             type:Sequelize.DATE,
-            allowNull:true,
+            allowNull:false,
         },
-        updateAT:{
+        updatedAT:{
             type:Sequelize.DATE,
-            allowNull:true,
+            allowNull:false,
         },
     })
 }

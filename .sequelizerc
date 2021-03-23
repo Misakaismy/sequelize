@@ -1,3 +1,4 @@
+// 設定變數資料夾
 require('@babel/register');
 
 const path = require('path');

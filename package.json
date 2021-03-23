@@ -19,8 +19,7 @@
     "lodash": "^4.17.21",
     "morgan": "^1.10.0",
     "mysql2": "^2.2.5",
-    "passport": "^0.4.1",
-    "sequelize": "^5.22.4"
+    "passport": "^0.4.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.10",
@@ -35,6 +34,7 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "nodemon": "^2.0.7",
+    "sequelize": "^5.22.4",
     "sequelize-cli": "^6.2.0"
   }
 }

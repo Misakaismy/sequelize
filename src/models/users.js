@@ -1,5 +1,9 @@
+// 設定模型 define 定義 `uesr` 有什麼，第二個是config設定
+// modelName 會預設+s 多打可以檢查用
+// 從資料庫撈回來的資料會自動套用model
 export default (sequelize, DataTypes)=>{
-    const users = sequelize.define('users',{
+    const users = sequelize.define('users',
+    {
         id:{
             type:DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
@@ -9,27 +13,18 @@ export default (sequelize, DataTypes)=>{
             type:DataTypes.STRING,
             unique: true,
         },
-        password:{
+        password: {
             type: DataTypes.STRING(60),
         },
-        email_verified:{
+        email_verified: {
             type:DataTypes.DATE,
         },
-        createAT:{
-            type:DataTypes.DATE,
-            allowNull:true,
-            field: 'created_at',
-        },
-        updateAT:{
-            type:DataTypes.DATE,
-            allowNull:true,
-            field: 'updated_at',
-        },
-    }, {
+    },
+    {
         sequelize,
         modelName:'users',
         freezeTableName: true,
         // timestamps: false,
     });
     return users;
-}
+};
