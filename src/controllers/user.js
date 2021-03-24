@@ -34,7 +34,33 @@ class UserController{
         })
         // console.log(user);
         res.status(200).json({user});
-    } 
+    }
+
+    destroyuser = async (req, res)=>{
+        const {body} = req;
+        const {email} =body;
+        const user = await users.destroy({
+            where:{
+                email,
+            }
+        })
+
+        res.status(200).json({user});
+    }
+
+    updateuser = async (req, res)=>{
+        const {body} = req;
+        const {email, password} =body;
+        const user = await users.update({
+            password
+        },{
+            where:{
+                email,
+            }
+        })
+
+        res.status(200).json({user});
+    }
 }
 
 export default new UserController();

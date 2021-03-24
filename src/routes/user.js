@@ -29,8 +29,10 @@ const router = Router();
 //     res.status(200).json({message:'Hi'});
 // });
 
-router.get('/', controller.getuser);
-router.post('/', controller.postuser);
+router.get('/search', controller.getuser);
+router.post('/add', controller.postuser);
+router.post('/destory', controller.destroyuser);
+router.post('/update', controller.updateuser);
 
 export default router;
 
