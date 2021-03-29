@@ -8,7 +8,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import passport from 'passport';
 import session from 'express-session';
-import indexRouter from './routes/index';
+import index from './routes/index';
 
 const app = express();
 
@@ -29,14 +29,17 @@ app.use(session({
 }));
 
 // 必須要有23~27行，才能執行
+// 驗證(由一層一層檢驗，認證成功再執行下一步)
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-app.use('/api', indexRouter);
-// app.use('/api', (req,res)=>{
-//     res.status(200).json({Message:'Hi'});
-// });
+app.use('/api', index);
+app.use('/', (req,res)=>{
+    res.status(200).json({Message:'Home'});
+});
+app.use('/login', (req,res)=>{
+    res.status(200).json({Message:'login'});
+});
 
 //port rouge (1~65536)
 //mssql port 1433
