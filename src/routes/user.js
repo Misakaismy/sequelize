@@ -14,8 +14,8 @@ const router = Router();
 // router.post('/updateUser', controller.updateuser);
 
 //or
-
-router.post('/find', userServer.jwtAuthenticate, controller.getuser);
+router.get('/get', userServer.jwtAuthenticate, controller.getuser)
+router.post('/find', userServer.Authenticate, controller.getuser);
 router.post('/', controller.postuser);
 router.delete('/', controller.destroyuser);
 router.patch('/',  controller.updateuser);

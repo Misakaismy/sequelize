@@ -22,7 +22,7 @@ class UserController{
         //     ...o.dataValues,
         //     vip:true,
         // }));
-        res.status(200).json({user});
+        res.status(200).json({profile:user,id:`${req.id}`});
     }
 
     postuser = async (req, res)=>{
